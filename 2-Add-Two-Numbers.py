@@ -8,11 +8,11 @@ class ListNode:
 
 class Solution:
     def addTwoNumbers(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
-        head_node = ListNode(0)
-        tail_node = head_node
-        remain_value = 0
+        dummnyHead = ListNode(0)
+        tail_node = dummnyHead
+        remain = 0
 
-        while l1 != None or l2 != None or remain_value != 0:
+        while l1 != None or l2 != None or remain != 0:
             digit1 = l1.val if l1 is not None else 0
             digit2 = l2.val if l2 is not None else 0
 
@@ -27,6 +27,6 @@ class Solution:
             l1 = l1.next if l1 is not None else None
             l2 = l2.next if l2 is not None else None
 
-        result = head_node.next
-        head_node.next = None
+        result = dummnyHead.next
+        dummnyHead.next = None
         return result
