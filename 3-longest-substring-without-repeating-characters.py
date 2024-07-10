@@ -1,13 +1,23 @@
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
-        char_exists = list(set(s))
+        if len(s) == 0:
+            return 0
+        
+        start = 0
+        max_length = 0
+        char_index_map = {}
 
-        longest_char = []
-        tmp_longest_string = ""
         for idx, char in enumerate(s):
-            while tmp_longest_string[-1] != s[idx]:
-                tmp_longest_string += s[idx]
+            if char in char_index_map:
+                if char_index_map[char] >= start:
+                    start = char_index_map[char] + 1
+            
+            char_index_map[char] = idx
+            max_length = max(max_length, idx - start + 1)
 
-            longest_char.append(tmp_longest_string)
-
-        return len(sorted(longest_char)[-1])
+            print("start:", start)
+            print("char_index_map[char]:", char_index_map[char])
+            print("max_length:", max_length)
+            print("%" * 100)
+        
+        return max_length
