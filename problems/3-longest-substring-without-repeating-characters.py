@@ -14,10 +14,5 @@ class Solution:
             
             char_index_map[char] = idx
             max_length = max(max_length, idx - start + 1)
-
-            print("start:", start)
-            print("char_index_map[char]:", char_index_map[char])
-            print("max_length:", max_length)
-            print("%" * 100)
         
         return max_length
